@@ -1,0 +1,75 @@
+// Theme White
+
+// Variables
+
+$app-container-bg: #f1f4f6;
+$app-sidebar-bg: #0257f2c2;
+$app-header-bg: #858b91;
+$app-header-logo-bg: rgba(255, 255, 255, .9);
+
+// Content
+
+.app-theme-white {
+
+  &.app-container {
+    background: $app-container-bg;
+  }
+
+  .app-sidebar {
+    .app-sidebar-content {
+      background: $app-sidebar-bg;
+    }
+  }
+
+  .app-inner-layout__wrapper {
+    border-bottom: $gray-200 solid 1px;
+  }
+
+  .app-page-title {
+    background: rgba(255, 255, 255, .45);
+  }
+
+  .app-sidebar .app-header__logo,
+  .app-footer .app-footer__inner,
+  .app-header {
+    background: $app-header-bg;
+    background-color: #fff;
+  }
+
+  .fixed{
+    width: 40px; 
+    height: 40px; 
+    padding: 0px 0px; 
+    border-radius: 50%; 
+    text-align: center;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    background: #0257f2c2;
+    border: none;
+  }
+
+  .marg-btm-10{
+    margin-bottom: 10%;
+  }
+
+  .taskLists{
+    padding-bottom: 10%;
+  }
+
+  .min-height-150{
+    min-height: 150px;
+  }
+
+  .bell-notification {
+    font-size: 10px;
+    border-radius: 50%;
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    background-color: #ff0023ba;
+    width: 30%;
+    height: 30%;
+  }
+
+}

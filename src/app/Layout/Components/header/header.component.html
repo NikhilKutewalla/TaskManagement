@@ -1,0 +1,69 @@
+<div [class]="'app-header ' + (config$ | async).headerTheme">
+  <!-- <div class="logo-src"></div> -->
+  <div class="fa fa-instagram fa-3x"></div>
+  <div class="app-header__content">
+    <div class="app-header-left">
+      <i class="fa fa-long-arrow-left">All Projects</i>
+    </div>
+    <div class="app-header-right w-50">
+    <form><select class="border-0 font-weight-bold form-control form-control-sm">
+      <option>Supermassive black hole</option>
+    </select></form>
+  </div>
+    <div>
+      <div class="d-flex">
+        <div class="header-btn-lg pr-0">
+          <div class="widget-content p-0">
+            <div class="widget-content-wrapper">
+              <div class="widget-content-left">
+                <div class="btn-group" ngbDropdown placement="bottom-right">
+                  <button type="button" class="btn p-0 mr-2" ngbDropdownToggle>
+                    <span>
+                      <div class="icon-wrapper icon-wrapper-alt rounded-square">
+                        <div class="bell-notification">1</div>
+                        <i class="fa fa-bell-o"></i>
+                      </div>
+                    </span>
+                  </button>
+                  <div ngbDropdownMenu>
+                    <button class="dropdown-item">Test Notification</button>
+                  </div>
+                </div>
+                <div class="btn-group" ngbDropdown placement="bottom-right">
+                  <button type="button" class="btn btn-link p-0 mr-2" ngbDropdownToggle>
+                    <span>
+                      <div class="icon-wrapper icon-wrapper-alt rounded-square">
+                        <img width="42" src="./assets/images/avatars/1.jpg" alt="" class="rounded-square">
+                      </div>
+                    </span>
+                  </button>
+                  <div ngbDropdownMenu>
+                    <button class="dropdown-item">Logout</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="app-header__mobile-menu">
+    <button type="button" class="hamburger close-sidebar-btn hamburger--elastic"
+            [ngClass]="{'is-active' : globals.toggleSidebarMobile}" (click)="toggleSidebarMobile()">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+  </div>
+  <div class="app-header__menu">
+    <span>
+        <button class="btn-icon btn-icon-only btn btn-primary" [ngClass]="{'is-active' : globals.toggleHeaderMobile}"
+                (click)="toggleHeaderMobile()">
+            <div class="btn-icon-wrapper">
+                <fa name="ellipsis-v"></fa>
+            </div>
+        </button>
+    </span>
+  </div>
+</div>

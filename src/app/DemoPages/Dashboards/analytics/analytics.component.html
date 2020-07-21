@@ -1,0 +1,240 @@
+<div class="mb-3 card">
+  <div class="no-gutters row">
+    <div class="col-sm-6 col-md-4 col-xl-4">
+      <div class="card no-shadow rm-border bg-transparent widget-chart text-left">
+        <div class="widget-chart-content">
+          <div class="opacity-8 ">
+            <div class="d-inline pr-1">
+              <i class="fa fa-star-o m-lg-2"></i>
+              <div class="badge badge-secondary m-lg-2"><i class="fa fa-user"></i> 6 people</div>
+              <div class="badge badge-success "><i class="fa fa-history"></i> 2 people</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="divider m-0 d-md-none d-sm-block"></div>
+    </div>
+  </div>
+
+<div class="container-fluid">
+  <div class="row">
+
+  <div class="col-xs-3 col-sm-2 col-md-3 col-lg-3">
+    <div class="card-hover-shadow-2x mb-3">
+      <div class="card-header-tab card-header border-0" style="background-color: #8080802e;">
+        <span style="margin-left: 75%;"><b>...</b></span>
+        <div style="float: left;"><h6><b>ToDo</b></h6></div>
+      </div>
+      <div style="background-color: #8080802e;">
+        <!-- <perfect-scrollbar [autoPropagation]="true"> -->
+          <!-- <ul class="todo-list-wrapper list-group list-group-flush"> -->
+             <div class="taskLists min-height-150"
+                [dndList]
+                [dndModel]="simpleList[0]">
+                <div *ngFor="let item of simpleList[0]"
+                  class="col-md-12 marg-btm-10"
+                  [dndType]="'item'"
+                  (dndMoved)="removeItem(item, simpleList[0])"
+                  [dndDraggable]
+                  [dndObject]="item">
+                  <div class="card todo-list-wrapper list-group list-group-flush">
+                      <div class="card-body">
+                        <div class="widget-content-wrapper">
+                          <div class="widget-content-left">
+                            <div class="widget-heading font-weight-bold">Title: {{item.title}}
+                            </div>
+                            <div class="widget-heading">Desc.: {{item.description}}</div>
+                            <div class="widget-subheading"><i>User: {{item.username}}</i></div>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            <!-- <li class="list-group-item">
+              <div class="widget-content p-0">
+                <div class="widget-content-wrapper">
+                  <div class="widget-content-left">
+                    <div class="widget-heading">Wash the car
+                      <div class="badge badge-secondary ">Rejected</div>
+                    </div>
+                    <div class="widget-subheading"><i>{{item.username}}</i></div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="todo-indicator bg-primary"></div>
+              <div class="widget-content p-0">
+                <div class="widget-content-wrapper">
+                  <div class="widget-content-left flex2">
+                    <div class="widget-heading">Badge on the right task</div>
+                    <div class="widget-subheading">This task has show on hover actions!</div>
+                  </div>
+                  <div class="widget-content-right ml-3">
+                    <div class="badge badge-pill badge-success">Latest Task</div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="todo-indicator bg-info"></div>
+              <div class="widget-content p-0">
+                <div class="widget-content-wrapper">
+                  <div class="widget-content-left mr-3">
+                    <div class="widget-content-left">
+                      <img width="42" class="rounded" src="./assets/images/avatars/1.jpg" alt="">
+                    </div>
+                  </div>
+                  <div class="widget-content-left">
+                    <div class="widget-heading">Go grocery shopping</div>
+                    <div class="widget-subheading">A short description for this todo item</div>
+                  </div>
+                </div>
+              </div>
+            </li> -->
+          <!-- </ul> -->
+        <!-- </perfect-scrollbar> -->
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+    <div class="card-hover-shadow-2x mb-3">
+      <div class="card-header-tab card-header border-0" style="background-color: #8080802e;">
+        <i style="color: red;margin-left: 30%;" class="fa fa-dot-circle-o font-weight-bold"> REC</i>
+        <span style="margin-left: 10%;">
+          <b>...</b></span>
+        <div style="float: left;"><h6><b>In Progress</b></h6></div>
+      </div>
+      <div style="background-color: #8080802e;">
+             <div class="taskLists min-height-150"
+                [dndList]
+                [dndModel]="simpleList[1]">
+                <div *ngFor="let item of simpleList[1]"
+                  class="col-md-12 marg-btm-10"
+                  [dndType]="'item'"
+                  (dndMoved)="removeItem(item, simpleList[1])"
+                  [dndDraggable]
+                  [dndObject]="item">
+                  <div class="card todo-list-wrapper list-group list-group-flush">
+                    <!-- <li class="list-group-item"> -->
+                      <div class="card-body">
+                        <div class="widget-content-wrapper">
+                          <div class="widget-content-left">
+                            <div class="widget-heading font-weight-bold">Title: {{item.title}}
+                            </div>
+                            <div class="widget-heading">Desc.: {{item.description}}</div>
+                            <div class="widget-subheading"><i>User: {{item.username}}</i></div>
+                          </div>
+                        </div>
+                      </div>
+                    <!-- </li> -->
+                  </div>
+                </div>
+              </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+    <div class="card-hover-shadow-2x mb-3">
+      <div class="card-header-tab card-header border-0" style="background-color: #8080802e;">
+        <span style="margin-left: 63%;"><b>...</b></span>
+        <div style="float: left;"><h6><b>In Review</b></h6></div>
+      </div>
+      <div style="background-color: #8080802e;">
+             <div class="taskLists min-height-150"
+                [dndList]
+                [dndModel]="simpleList[2]">
+                <div *ngFor="let item of simpleList[2]"
+                  class="col-md-12 marg-btm-10"
+                  [dndType]="'item'"
+                  (dndMoved)="removeItem(item, simpleList[2])"
+                  [dndDraggable]
+                  [dndObject]="item">
+                  <div class="card todo-list-wrapper list-group list-group-flush">
+                    <!-- <li class="list-group-item"> -->
+                      <div class="card-body">
+                        <div class="widget-content-wrapper">
+                          <div class="widget-content-left">
+                            <div class="widget-heading font-weight-bold">Title: {{item.title}}
+                            </div>
+                            <div class="widget-heading">Desc.: {{item.description}}</div>
+                            <div class="widget-subheading"><i>User: {{item.username}}</i></div>
+                          </div>
+                        </div>
+                      </div>
+                    <!-- </li> -->
+                  </div>
+                </div>
+              </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+    <div class="card-hover-shadow-2x mb-3">
+      <div class="card-header-tab card-header border-0" style="background-color: #8080802e;">
+        <span style="margin-left: 64%;"><b>...</b></span>
+        <div style="float: left;"><h6><b>Done</b></h6></div>
+      </div>
+      <div style="background-color: #8080802e;">
+             <div class="taskLists min-height-150"
+                [dndList]
+                [dndModel]="simpleList[3]">
+                <div *ngFor="let item of simpleList[3]"
+                  class="col-md-12 marg-btm-10"
+                  [dndType]="'item'"
+                  (dndMoved)="removeItem(item, simpleList[3])"
+                  [dndDraggable]
+                  [dndObject]="item">
+                  <div class="card todo-list-wrapper list-group list-group-flush">
+                    <!-- <li class="list-group-item"> -->
+                      <div class="card-body">
+                        <div class="widget-content-wrapper">
+                          <div class="widget-content-left">
+                            <div class="widget-heading font-weight-bold">Title: {{item.title}}
+                            </div>
+                            <div class="widget-heading">Desc.: {{item.description}}</div>
+                            <div class="widget-subheading"><i>User: {{item.username}}</i></div>
+                          </div>
+                        </div>
+                      </div>
+                    <!-- </li> -->
+                  </div>
+                </div>
+              </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+</div>
+
+
+</div>
+
+<!-- <a class="btn btn-sm btn-primary mr-2 fixed" (click)="open(content)">Homepage</a> -->
+<button type="button" class="btn btn-primary btn-circle btn-sm fixed" (click)="open(content)">+</button>
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h6 class="modal-title">Add Data</h6>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <label for="exampleEmail">Title*</label>
+    <input [(ngModel)]="txtTitle" class="mb-2 form-control-sm form-control" type="text">
+    <label for="exampleEmail">Description</label>
+    <input [(ngModel)]="txtDesc" class="mb-2 form-control-sm form-control" type="text">
+    <label for="exampleEmail">Username*</label>
+    <input [(ngModel)]="txtUser" class="mb-2 form-control-sm form-control" type="text">
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+    <button type="button" class="btn btn-primary" (click)="save() && c('Close click')">Save changes</button>
+  </div>
+</ng-template>

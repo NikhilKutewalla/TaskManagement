@@ -1,0 +1,86 @@
+<div [class]="'app-sidebar sidebar-shadow ' + (config$ | async).sidebarTheme" (mouseover)="toggleSidebar() && sidebarHover()"
+     (mouseout)="toggleSidebar() && sidebarHover()">
+  <div class="app-header__logo">
+    <div class="fa fa-instagram fa-3x"></div>
+    <div class="header__pane ml-auto">
+      <button type="button" class="hamburger close-sidebar-btn hamburger--elastic"
+              [ngClass]="{'is-active' : globals.toggleSidebar}" (click)="toggleSidebar()">
+        <!-- <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span> -->
+      </button>
+    </div>
+  </div>
+  <div class="app-sidebar-content">
+    <div class="app-sidebar-scroll">
+      <perfect-scrollbar [autoPropagation]="true">
+        <div class="v-sidebar-menu vsm-default">
+          <div class="vsm-list">
+            <ngb-accordion [destroyOnHide]="false" [closeOthers]="true" [activeIds]="extraParameter">
+              <!-- <ngb-panel>
+                <ng-template ngbPanelHeader>
+                  <div class="vsm-header">Main Navigation</div>
+                </ng-template>
+              </ngb-panel> -->
+              <ngb-panel id="dashboardsMenu">
+                <ng-template ngbPanelHeader>
+                  <button ngbPanelToggle class="vsm-link" routerLink="" routerLinkActive=""
+                  [routerLinkActiveOptions]="{exact: true}">
+                    <i class="vsm-icon pe-7s-home"></i>
+                    <span class="vsm-title">Home</span>
+                  </button>
+                </ng-template>
+              </ngb-panel>
+              <ngb-panel id="dashboardsMenu">
+                <ng-template ngbPanelHeader>
+                  <button ngbPanelToggle class="vsm-link" routerLink="" routerLinkActive="active-item"
+                  [routerLinkActiveOptions]="{exact: true}">
+                    <i class="vsm-icon fa fa-tachometer"></i>
+                    <span class="vsm-title">DashBoard</span>
+                  </button>
+                </ng-template>
+              </ngb-panel>
+              <ngb-panel id="dashboardsMenu">
+                <ng-template ngbPanelHeader>
+                  <button ngbPanelToggle class="vsm-link" routerLink="" routerLinkActive=""
+                  [routerLinkActiveOptions]="{exact: true}">
+                    <i class="vsm-icon fa fa-calendar"></i>
+                    <span class="vsm-title">Calendar</span>
+                  </button>
+                </ng-template>
+              </ngb-panel>
+              <ngb-panel id="dashboardsMenu">
+                <ng-template ngbPanelHeader>
+                  <button ngbPanelToggle class="vsm-link" routerLink="" routerLinkActive=""
+                  [routerLinkActiveOptions]="{exact: true}">
+                    <i class="vsm-icon fa fa-weixin"></i>
+                    <span class="vsm-title">Chat</span>
+                  </button>
+                </ng-template>
+              </ngb-panel>
+              <ngb-panel id="dashboardsMenu">
+                <ng-template ngbPanelHeader>
+                  <button ngbPanelToggle class="vsm-link" routerLink="" routerLinkActive=""
+                  [routerLinkActiveOptions]="{exact: true}">
+                    <i class="vsm-icon fa fa-history"></i>
+                    <span class="vsm-title">History</span>
+                  </button>
+                </ng-template>
+              </ngb-panel>
+              <ngb-panel id="dashboardsMenu">
+                <ng-template ngbPanelHeader>
+                  <button ngbPanelToggle class="vsm-link" routerLink="" routerLinkActive=""
+                  [routerLinkActiveOptions]="{exact: true}">
+                    <i class="vsm-icon fa fa-android"></i>
+                    <span class="vsm-title">Profile</span>
+                  </button>
+                </ng-template>
+              </ngb-panel>
+
+            </ngb-accordion>
+          </div>
+        </div>
+      </perfect-scrollbar>
+    </div>
+  </div>
+</div>
