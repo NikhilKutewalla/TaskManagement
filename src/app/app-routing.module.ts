@@ -4,11 +4,13 @@ import {Routes, RouterModule} from '@angular/router';
 import {BaseLayoutComponent} from './Layout/base-layout/base-layout.component';
 import {PagesLayoutComponent} from './Layout/pages-layout/pages-layout.component';
 
-// DEMO PAGES
-
-// Dashboards 
-
 import {AnalyticsComponent} from './DemoPages/Dashboards/analytics/analytics.component';
+
+// const routes: Routes = 
+// [
+//   { path: '', redirectTo: 'analytics', pathMatch: 'full' },
+//   { path: 'analytics', component: BaseLayoutComponent },
+// ];
 
 const routes: Routes = [
   {

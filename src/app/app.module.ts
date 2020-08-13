@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {NgModule, APP_INITIALIZER} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgReduxModule} from '@angular-redux/store';
@@ -9,8 +9,8 @@ import {ConfigActions} from './ThemeOptions/store/config.actions';
 import {AppRoutingModule} from './app-routing.module';
 import {LoadingBarRouterModule} from '@ngx-loading-bar/router';
 
-import {CommonModule} from '@angular/common';
-import {HttpClientModule} from '@angular/common/http';
+import {CommonModule, LocationStrategy, HashLocationStrategy, APP_BASE_HREF} from '@angular/common';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import {AppComponent} from './app.component';
 
 // BOOTSTRAP COMPONENTS
@@ -65,14 +65,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     Ng2IziToastModule
   ],
   providers: [
-    {
-      provide:
-      PERFECT_SCROLLBAR_CONFIG,
-      // DROPZONE_CONFIG,
-      useValue:
-      DEFAULT_PERFECT_SCROLLBAR_CONFIG,
-      // DEFAULT_DROPZONE_CONFIG,
-    },
+    {provide: PERFECT_SCROLLBAR_CONFIG, useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG},
+    {provide: LocationStrategy, useClass: HashLocationStrategy},
     ConfigActions,
   ],
   bootstrap: [AppComponent]
