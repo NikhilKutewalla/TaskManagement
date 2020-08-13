@@ -2,6 +2,8 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import {Color} from 'ng2-charts/ng2-charts';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { Ng2IzitoastService } from 'ng2-izitoast';
+import { Observable, forkJoin } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-analytics',
@@ -13,10 +15,16 @@ export class AnalyticsComponent implements OnInit {
   txtTitle = "";
   txtDesc = "";
   txtUser = "";
-  data: any;
+  locationWeatherData: any;
+  MultipleObservableRequests: any=[];
 
   ngOnInit() {
-    this.getData();
+    // this.getDataUsingPromise();
+    // this.getDataUsingObservableSingle().subscribe(response => {console.log(response)});
+    this.getDataUsingObservableMultiple([44418, 2487956]);
+    forkJoin(this.MultipleObservableRequests).subscribe(result => {
+      console.log(result);
+    });
   }
 
   /***
@@ -31,7 +39,7 @@ export class AnalyticsComponent implements OnInit {
   /***
    * Promise Example
    */
-  getData(){
+  getDataUsingPromise(){
     const data = new Promise((success, error) => {
       fetch(`https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/44418/`)
       .then((obj) => {
@@ -40,11 +48,30 @@ export class AnalyticsComponent implements OnInit {
     });
     data
     .then(result =>  {
-      this.data = result;
-      console.log(this.data);
+      this.locationWeatherData = result;
+      console.log(this.locationWeatherData);
     })
     .catch(error => {console.log(error);});
   };
+
+  /***
+   * Observables Example
+   */
+  //single
+  getDataUsingObservableSingle(locationid): Observable<Object> {
+    let apiURL = `https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/${locationid}/`;
+    return this.http.get(apiURL);
+  }
+
+  //multiple
+  getDataUsingObservableMultiple(locationid): any {
+    for(let id of locationid){
+      let apiURL = `https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/${id}/`;
+      this.MultipleObservableRequests.push(this.http.get(apiURL));
+    }
+    return this.MultipleObservableRequests;
+  }
+
 
   simpleList = [
     [
@@ -69,7 +96,7 @@ export class AnalyticsComponent implements OnInit {
     ]
   ];
 
-  constructor(private modalService: NgbModal, public iziToast: Ng2IzitoastService) {
+  constructor(private modalService: NgbModal, public iziToast: Ng2IzitoastService, public http: HttpClient) {
 
 
   }
